@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title id="title">[[CLICK HIM]]</title>
+		<link rel="icon" type="image/x-icon" href="favicon.png">
+		
+		<style>
+			html {
+				cursor: url("mouse.png"), auto;
+			}
+
+			body {
+				background: black;
+				image-rendering: pixelated;
+			}
+
+			img {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+				width: 224px;
+			}
+
+			img#salesman {
+				width: 175px;
+				cursor: url("mouse_invert.png"), auto;
+			}
+
+			@keyframes blur {
+				0% { filter: blur(0px); top: 50%; }
+				25% { filter: blur(25px); top: calc(50% + 20px); left: calc(50% + 20px)  }
+				50% { filter: blur(50px); top: 50%; }
+				75% { filter: blur(25px); top: calc(50% - 20px); left: calc(50% - 20px)  }
+				100% { filter: blur(0px); top: 50%; }
+			}
+
+			@keyframes very_blur {
+				0% { filter: blur(50px); top: 50%; }
+				25% { filter: blur(100px); top: calc(50% - 40px); left: calc(50% - 40px)  }
+				50% { filter: blur(150px); top: 50%; }
+				75% { filter: blur(100px); top: calc(50% + 40px); left: calc(50% + 40px)  }
+				100% { filter: blur(50px); top: 50%; }
+			}
+
+			.blurry {
+				animation-name: blur;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
+			}
+
+			.very_blurry {
+				animation-name: very_blur;
+				animation-duration: 5s;
+				animation-iteration-count: infinite;
+				opacity: 30%;
+				width: 480px;
+			}
+
+			.real {
+				filter: drop-shadow(5px 5px black);
+			}
+
+			#keygen {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<audio src="keygen.mp3" loop id="bgm"></audio>
+
+		<img src="salesman.png" id="salesman">
+
+		<div id="keygen">
+			<img src="keygen.gif" class="very_blurry">
+			<img src="keygen.gif" class="blurry">
+			<img src="keygen.gif" class="real">
+		</div>
+	</body>
+	<script>
+		var hasBeenClicked = false;
+
+		document.body.addEventListener("click", function (e) {
+			if (!hasBeenClicked) {
+				document.getElementById("bgm").play();
+				document.getElementById("title").innerHTML = "[[NUMBER 1 RATED SALESMAN 1997]]";
+				document.getElementById("keygen").style.display = "block";
+				document.getElementById("salesman").style.display = "none";
+				hasBeenClicked = true;
+			}
+		});
+	</script>
+</html>

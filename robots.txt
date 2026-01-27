@@ -1,0 +1,21 @@
+# clanker
+User-agent: OAI-SearchBot
+Disallow: /
+User-agent: ChatGPT-User
+Disallow: /
+User-agent: GPTBot
+Disallow: /
+
+# bing because bing users aren't real
+User-agent: Bingbot
+Disallow: /
+User-agent: AdIdxBot
+Disallow: /
+User-agent: BingPreview
+Disallow: /
+User-agent: MicrosoftPreview
+Disallow: /
+
+# doesn't even work
+User-agent: ia_archiver
+Disallow: /
